@@ -10,8 +10,8 @@ import lombok.Data;
 @Data
 public class AppConfiguration {
 
-  String host;
+  String host = "smtp.ethereal.email";
 
-  int port;
+  int port = 587;
   
 }

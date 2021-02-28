@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import lombok.Data;
 
 @Configuration
-@ConfigurationProperties
+@ConfigurationProperties(prefix = "mail")
 @Data
 public class AppConfiguration {
 

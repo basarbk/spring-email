@@ -2,7 +2,7 @@ package com.example.email.configuration;
 
 import java.util.Properties;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -10,15 +10,15 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
 public class MailConfiguration {
-
-  @Value("${mail.host:smtp.ethereal.email}")
-  String mailHost;
+  
+  @Autowired
+  AppConfiguration appConfiguration;
 
   @Bean
   JavaMailSender mailSender(){
     JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-    mailSender.setHost(mailHost);
-    mailSender.setPort(587);
+    mailSender.setHost(appConfiguration.getHost());
+    mailSender.setPort(appConfiguration.getPort());
     mailSender.setUsername("lizeth.rempel2@ethereal.email");
     mailSender.setPassword("tqTKwbKmnc1y7RAJ3F");
 

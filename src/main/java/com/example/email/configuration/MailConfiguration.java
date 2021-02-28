@@ -11,7 +11,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 @Configuration
 public class MailConfiguration {
 
-  @Value("${mail.host}")
+  @Value("${mail.host:smtp.ethereal.email}")
   String mailHost;
 
   @Bean

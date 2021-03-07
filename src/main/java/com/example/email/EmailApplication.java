@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 public class EmailApplication {
@@ -14,9 +15,18 @@ public class EmailApplication {
 	}
 
 	@Bean
-	CommandLineRunner run(@Value("${message}") String message){
+	@Profile("production")
+	CommandLineRunner runProduction(@Value("${message}") String message){
 		return (args) -> {
 			System.err.println(message);
+		};
+	}
+
+	@Bean
+	@Profile("dev")
+	CommandLineRunner runDevelopment(){
+		return (args) -> {
+			System.err.println("this will run in dev profile");
 		};
 	}
 

@@ -2,7 +2,6 @@ spring:
   profiles:
     active:
       - production
-      - dev
 message: default message
 ---
 spring:

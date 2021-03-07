@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active:
+      - production
+      - dev
+message: default message
+---
+spring:
+  profiles: dev
+message: development message
+---
+spring:
+  profiles: production
+message: production message
